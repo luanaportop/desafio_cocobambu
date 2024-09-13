@@ -1,0 +1,185 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0; /* Fundo cinza claro */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+/* Container principal */
+.container {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 25px;
+    max-width: 700px; /* Largura reduzida para um design mais compacto */
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Estilização dos títulos */
+h1, h2 {
+    font-weight: 700;
+    color: #4A148C; /* Roxo escuro para os títulos */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #43A047; /* Barra verde embaixo do título */
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+/* Barra de pesquisa */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 75%; /* O input ocupa 75% da largura */
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #43A047; /* Verde */
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #4A148C; /* Roxo */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #6A1B9A; /* Roxo mais claro ao passar o mouse */
+    transform: translateY(-2px);
+}
+
+/* Lista de livros */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 15px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+
+li strong {
+    font-size: 1.2rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+li form {
+    display: block;
+    margin-top: 10px;
+}
+
+li button {
+    background-color: #43A047; /* Verde */
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+}
+
+li button:hover {
+    background-color: #2E7D32; /* Verde escuro ao passar o mouse */
+}
+
+/* Seção de Favoritos */
+.favorites ul {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.favorites li {
+    background-color: #EDE7F6; /* Fundo roxo claro */
+    border-color: #D1C4E9;
+    margin-bottom: 15px;
+}
+
+.favorites p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Input e notas */
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+input[type="number"] {
+    max-width: 100px;
+    text-align: center;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #4A148C; /* Roxo */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    button {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    li {
+        text-align: center; /* Centraliza o texto em telas menores */
+    }
+}

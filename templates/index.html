@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Livros</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <div class="busca">
+        <p>Buscar</p>
+        <form method="GET" action="/">
+            <input type="text" name="q" placeholder="Pesquise por livros" value="{{ request.args.get('q', '') }}">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Livros Disponíveis</h2>
+        <ul>
+            {% for book in books %}
+            <li>
+                <strong>{{ book['volumeInfo']['title'] }}</strong> - 
+                {{ book['volumeInfo'].get('authors', ['Autor Desconhecido'])[0] }}
+                <form action="/add_favorite" method="POST" style="display:inline;">
+                    <input type="hidden" name="title" value="{{ book['volumeInfo']['title'] }}">
+                    <button type="submit">Adicionar aos Favoritos</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="favorites">
+        <h2>Meus Favoritos</h2>
+        <ul>
+            {% for favorite in favorites %}
+            <li>
+                <strong>{{ favorite }}</strong>
+                <form action="/add_note_rating" method="POST" style="display:inline;">
+                    <input type="hidden" name="title" value="{{ favorite }}">
+                    <input type="text" name="note" placeholder="Adicione uma anotação" value="{{ notes.get(favorite, '') }}">
+                    <input type="number" name="rating" min="1" max="5" placeholder="Avaliação (1-5)" value="{{ ratings.get(favorite, '') }}">
+                    <button type="submit">Salvar Anotação e Avaliação</button>
+                </form>
+                {% if favorite in notes %}
+                <p><strong>Anotação:</strong> {{ notes[favorite] }}</p>
+                {% if favorite in ratings %}
+                <p><strong>Avaliação:</strong> {{ ratings[favorite] }}/5</p>
+                {% endif %}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
